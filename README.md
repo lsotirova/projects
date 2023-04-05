@@ -1,6 +1,6 @@
 # Email Client Single Page App
 
-This is a single-page application email client built using JavaScript, HTML, and CSS. The app is implemented inside of `inbox.js` file, and all the requirements listed below must be fulfilled:
+This is a single-page application email client built using JavaScript, HTML, and CSS. The app is implemented inside of `inbox.js` file, and all the requirements listed below are fulfilled:
 
 ## Send Mail
 When a user submits the email composition form, JavaScript code is added to send the email by making a POST request to `/emails`, passing in values for recipients, subject, and body. After the email has been sent, the user's sent mailbox is loaded.
