@@ -1,0 +1,17 @@
+html, body {
+    padding: 10px;
+    background-image: url("https://wallpaper.dog/large/10754569.jpg") !important;
+}
+
+.nav-link {
+    color: darkgreen !important;
+}
+#title {
+    background-color: #9ec96c;
+    background-image: linear-gradient(to top, #26580f 0%, #c4e499 100%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+}

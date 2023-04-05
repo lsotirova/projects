@@ -1,0 +1,48 @@
+{% extends "auctions/layout.html" %}
+{% block body %}
+{% if winner == user.username %}
+<div>
+   <h4 style="margin: 10px;">Congratulations! </h4>
+   <h6 style="margin: 10px; margin-bottom:20px;"> You bought {{listing.title}} for ${{ price }}</h6>
+</div>
+{% elif user == owner and owner != winner %}
+<div>
+   <h4 style="margin: 10px;">Congratulations! </h4>
+   <h6 style="margin: 10px; margin-bottom:20px;"> You sold {{ listing.title }} for ${{ price|floatformat:2 }} to {{ winner }}.</h6>
+</div>
+{% else %}
+<div>
+   <h6 style="margin: 10px; margin-bottom:20px;">This listing is closed.</h6>
+</div>
+{% endif %}
+<div style="margin: 0 10px;">
+   <img src="{{ listing.image }}" alt="{{ listing.title }} image" width="300" height="300">
+   <br>
+   <h4 style="margin-top:20px;"><b>Details:</b></h4>
+   <p><b>Listed by:</b> {{ listing.owner }}</p>
+   <p><b>Category:</b> {{ listing.category }}</p>
+   <div style="width:600px; text-align:justify;">
+      <p>{{ listing.description }}</p>
+   </div>
+</div>
+<br>
+<div class="comments" style="margin: 0 10px;">
+   <h6 class="mb-3"><b>Comments</b></h6>
+   {% if comments %}
+   <ul class="list-unstyled">
+      {% for comment in comments %}
+      <div class="card mb-3 comment" style="box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.075); width: 400px; height: auto;">
+         <div class="card-body">
+            <p class="card-text">{{ comment.comment }}</p>
+            <div class="card-footer text-muted" style="background-color: #e6f2ff; padding:5px;">
+               - {{ comment.user.username }} <small>{{ comment.date }}</small>
+            </div>
+         </div>
+      </div>
+      {% endfor %}
+   </ul>
+   {% else %}
+   <p>No comments found</p>
+   {% endif %}
+</div>
+{% endblock %}

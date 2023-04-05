@@ -1,0 +1,17 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+<h2 style="margin: 10px;">Closed Listings</h2>
+<br>
+<div style="overflow: auto;">
+  {% for listing in listings %}
+  <div style="display: inline-block; margin: 10px;">
+    <h5> {{ listing.title }} </h5>
+    <img src="{{ listing.image }}" alt="{{ listing.title }} image" width="300" height="300">
+    <p><b>Price: </b> ${{ listing.start_bid  }}</p>
+    <p><b>Created</b> {{ listing.timestamp }} </p>
+    <button class="btn btn-sm btn-light"><a href="{% url 'details' pk=listing.id %}" style="color: black !important;">More Details</a></button>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
