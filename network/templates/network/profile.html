@@ -1,0 +1,96 @@
+{% extends "network/layout.html" %}
+{% load static %}
+{% block body %}
+<div style="margin:auto">
+   <div class="row" id="profile-info">
+      <div class="text-center" id="profile-div">
+         <div class="card">
+            <div class="card-body">
+               <div id="user-photo-username">
+                  <h5 class="card-title user-name">{{ profile_user.username }}</h5>
+                  <img src="{{ profile_user.profile_photo }}" width="90" height="90" id="profile-photo">
+               </div>
+               <div>
+                  <p class="card-text"><strong>Followers: </strong><span id="num-followers">{{ num_followers }}</span></p>
+                  <p class="card-text"><strong>Following: </strong><span id="num-following">{{ num_following }}</span></p>
+                  {% if request.user != profile_user %}
+                  {% if following %}
+                  <form action="{% url 'unfollow' profile_user.username %}" method="post">
+                     {% csrf_token %}
+                     <button id="unfollow-button" class="btn btn-secondary unfollow-button" type="submit">Unfollow </button>
+                  </form>
+                  {% else %}
+                  <form action="{% url 'follow' profile_user.username %}" method="post">
+                     {% csrf_token %}
+                     <button id="follow-button" class="btn follow-button" type="submit">Follow <i class='fas fa-user-plus'></i></button>
+                  </form>
+                  {% endif %}
+                  {% endif %}
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-7 posts-container">
+         <h4 class="card-title">Posts</h4>
+         {% if posts %}
+         {% for post in posts %}
+         <div class="card mb-3" id="single-post">
+            <div class="card-body">
+               <p class="card-text" id="content_{{ post.id }}">{{ post.content }}</p>
+               <div id="editPost_{{ post.id }}" class="edit-post-option">
+                  <textarea id="textarea_{{ post.id }}" class="form-control edit-content-textarea">{{ post.content }}</textarea>
+                  <br>
+                  <button type="button" class="btn save-post-btn" onclick="savePost({{ post.id }})">Save</button>
+                  <button type="button" class="btn btn-secondary" onclick="cancelEdit({{ post.id }})">Cancel</button>
+               </div>
+            </div>
+            <div class="card-body border-0">
+               <div class="row">
+                  <div class="row col-md-5 d-flex justify-content-start align-items-center like-btns">
+                     {% if post.id in post_liked_ids %}
+                     <!-- Already liked the post -->
+                     <button class="hrts btn btn-light text-danger fas fa-heart" onclick="likeFunction({{post.id}}, {{post_liked_ids}})" id="{{ post.id }}"></button>
+                     {% else %}
+                     <!-- Not liked yet -->
+                     <button class="hrts btn btn-light far fa-heart" onclick="likeFunction({{post.id}}, {{post_liked_ids}}, {{post.num_likes}})" id="{{ post.id }}"></button>
+                     {% endif %}
+                     &nbsp;
+                     <span id="likes-count-{{ post.id }}" style="color:black;">{{ post.num_likes }} {% if post.num_likes == 1%} like {% else %} likes {% endif %}</span>
+                  </div>
+                  <div class="col-md-6 d-flex justify-content-end align-items-center">
+                     <div class="float-right row">
+                        <p class="card-subtitle mb-0 text-muted h8">{{ post.timestamp }}</p>
+                        {% if user.is_authenticated and user == post.user%}
+                        <button class="fa fa-pencil btn btn-light btn-sm card-subtitle mb-0 edit-pencil" onclick="editPost({{ post.id }})"></button>
+                        {% endif %} 
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         {% endfor %}
+         {% else %}
+         <p>No posts yet.</p>
+         {% endif %}
+      </div>
+   </div>
+</div>
+{% if posts.paginator.num_pages > 1 %}
+<div class="pagination">
+   {% if posts.has_previous %}
+   <a class="btn btn-light" href="?page={{ posts.previous_page_number }}">&lsaquo; Previous</a>
+   {% endif %}
+   {% for num in posts.paginator.page_range %}
+   {% if num == posts.number %}
+   <a class="btn btn-light active" href="?page={{ num }}">{{ num }}</a>
+   {% elif num > posts.number|add:"-3" and num < posts.number|add:"3" %}
+   <a class="btn btn-light" href="?page={{ num }}">{{ num }}</a>
+   {% endif %}
+   {% endfor %}
+   {% if posts.has_next %}
+   <a class="btn btn-light" href="?page={{ posts.next_page_number }}">Next &rsaquo;</a>
+   {% endif %}
+</div>
+{% endif %}
+<script src="{% static 'network/like.js' %}"></script>
+{% endblock %}

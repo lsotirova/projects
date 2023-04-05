@@ -1,0 +1,70 @@
+{% extends "network/layout.html" %}
+{% load static %}
+{% block body %}
+<h4 class="page-title">Following</h4>
+<hr>
+<div class="posts-on-page col-md-8">
+   {% for post in posts %}
+   <div class="card mb-4" data-post_id="{{ post.id }}">
+      <div class="card-header border-0">
+         <div class="header-div">
+            <a href="{% url 'profile' username=post.user.username %}">
+            <img src="{{ post.user.profile_photo }}" width="30" height="28" class="index-profile-photo">
+            </a>
+            <h5 class="card-title mb-0">
+               <a class="user-name" href="{% url 'profile' username=post.user.username %}">
+               {{ post.user }}
+               </a>
+            </h5>   
+         </div>
+         <div>
+            <p class="card-subtitle mb-0 text-muted h8">{{ post.timestamp }}</p>
+         </div>
+      </div>
+      <div class="card-body">
+         <p class="card-text post-content">{{ post.content }}</p>
+      </div>
+      <div class="card-footer border-0">
+         <div class="row">
+            <div class="col-md-6 d-flex justify-content-start align-items-center">
+               {% if post.id in post_liked_ids %}
+               <!-- Already liked the post -->
+               <button class="hrts btn btn-light text-danger fas fa-heart" onclick="likeFunction({{post.id}}, {{post_liked_ids}})" id="{{ post.id }}"></button>
+               {% else %}
+               <!-- Not liked yet -->
+               <button class="hrts btn btn-light far fa-heart" onclick="likeFunction({{post.id}}, {{post_liked_ids}}, {{post.num_likes}})" id="{{ post.id }}"></button>
+               {% endif %}
+               &nbsp;
+               <span id="likes-count-{{ post.id }}" style="color:black;">{{ post.num_likes }} {% if post.num_likes == 1%} like {% else %} likes {% endif %}</span>
+            </div>
+            <div class="col-md-6 text-right">
+               {% if user.is_authenticated and post.user == user %}
+               <a href="" class="btn btn-warning btn-sm" id="edit-button">Edit</a>
+               {% endif %}
+            </div>
+         </div>
+      </div>
+   </div>
+   {% empty %}
+   <p>No posts to display.</p>
+   {% endfor %}
+</div>
+{% if posts.paginator.num_pages > 1 %}
+<div class="pagination">
+   {% if posts.has_previous %}
+   <a class="btn btn-light" href="?page={{ posts.previous_page_number }}">&lsaquo; Previous</a>
+   {% endif %}
+   {% for num in posts.paginator.page_range %}
+   {% if num == posts.number %}
+   <a class="btn btn-light active" href="?page={{ num }}">{{ num }}</a>
+   {% elif num > posts.number|add:"-3" and num < posts.number|add:"3" %}
+   <a class="btn btn-light" href="?page={{ num }}">{{ num }}</a>
+   {% endif %}
+   {% endfor %}
+   {% if posts.has_next %}
+   <a class="btn btn-light" href="?page={{ posts.next_page_number }}">Next &rsaquo;</a>
+   {% endif %}
+</div>
+{% endif %}
+<script src="{% static 'network/like.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,198 @@
+html, body {
+    height: 70vh;
+    left:10%;
+    font-family: 'Roboto', sans-serif;
+}
+
+.card {
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.075);
+}
+
+
+.hrts {
+    border-radius: 30px;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.075);
+    padding:5px 7px;
+}
+
+
+.card-body {
+    padding: 5px;
+    padding-top: 9px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 8px;
+    height: auto;
+  }
+
+  .h8{
+    font-size: 14px;
+ }
+.card-text {
+    margin-left: 1%;
+    margin-right: 1%;
+}
+.navbar-container {
+    width: 190px; 
+    position: fixed; 
+    top: 0;
+    left: 0; 
+    bottom: 0; 
+    background-color: #032539;
+    color: white;
+    padding: 10px;
+    margin-right: auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 0, 0, 0.5);
+}
+.navbar-brand {
+    margin-bottom:55px; 
+    margin-top:10%; 
+    margin-left:8px; 
+    color:white; 
+    font-size:21px;
+    font-family: 'Roboto Serif', serif;
+}
+.navbar-brand:hover {
+    color:white;
+}
+#user-style {
+    color:#fff;
+    font-size:19px;
+    margin-top:20%;
+    text-transform: capitalize;
+}
+#brand-icon {
+    font-size: 24px;
+    color: #00a0dc;
+}
+.navbar-item {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.nav-link {
+    color:#04a7ff;
+    font-size:19px;
+}
+#navbar-div {
+    margin-left:15px;
+}
+#main-container {
+    margin-top:3%; 
+    margin-left:32%;
+}
+.card {
+    border-radius:20px !important;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.1), 0px 4px 8px rgba(0,0,0,0.1);
+}
+#new-post-textarea {
+    resize: none; 
+    width:95%; 
+    margin-left:auto; 
+    margin-right:auto; 
+    margin-top:20px; 
+    border-radius:10px;
+}
+#new-post-btn {
+    background-color:#0077b5; 
+    color: white; 
+    margin-left:89%;
+}
+.page-title {
+    margin-left:24.5% !important; 
+    margin-top:2% !important;
+}
+.posts-on-page {
+    margin-top:1%; 
+    margin-left:23% !important;
+}
+.card-header {
+    background-color: white;
+    border-top-left-radius:20px !important;
+    border-top-right-radius:20px !important; 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    height: 50px;
+}
+.index-profile-photo {
+    border-radius: 50%;
+    margin-right: 10px;
+}
+#profile-photo {
+    border-radius: 50%; 
+    margin-top: 5px;
+}
+.follow-button {
+    background-color:#0383c8; 
+    color:#fff;
+}
+.user-name {
+    color:black; 
+    text-transform: capitalize;
+}
+.edit-post-option {
+    display: none;
+}
+.edit-content-textarea {
+    resize: none; 
+    border-radius:10px;
+}
+.save-post-btn {
+    background-color:#0077b5; 
+    color:#fff;
+}
+.card-footer {
+    background-color:white; 
+    border-radius:20px !important;
+}
+.edit-pencil {
+    font-size:11px; 
+    color:#0077b5;
+}
+.pagination {
+    display: flex; 
+    justify-content: center; 
+    margin-bottom:1%;
+}
+.header-div {
+    display:flex; 
+    align-items:center;
+    font-weight: bold;
+}
+#profile-info {
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.075); 
+    margin-left:5%;
+}
+#profile-div {
+    margin-left:15%; 
+    margin-top:4%; 
+    width:230px;
+}
+#user-photo-username {
+    margin: 0 auto; 
+    padding-bottom: 10px;
+}
+.posts-container {
+    margin:auto; 
+    margin-top:1%;
+}
+.like-btns {
+    margin-left:2%;
+}
+.input-field {
+    width:350px;
+}
+.login-register-btn {
+    background-color:#0383c8; 
+    color:#fff;
+}
+.login-register-text {
+    color:#0383c8;
+}
+.login-register-div {
+    justify-content: center; 
+    align-items: center; 
+    margin: 0 auto; 
+    width: 50%; 
+    margin-top:2%;
+}

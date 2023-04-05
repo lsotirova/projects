@@ -1,0 +1,93 @@
+{% extends "network/layout.html" %}
+{% load static %}
+{% block body %}
+{% if posts.number == 1 and user.is_authenticated %}
+<div class="col-md-6" id="main-container">
+   <div class="card mb-4">
+      <div class="card-body">
+         {% if user.is_authenticated %}
+         <form method="post" action="{% url 'new_post' %}">
+            {% csrf_token %}
+            <textarea name="content" class="form-control mb-3" id="new-post-textarea" rows="2" placeholder="What's on your mind?" required></textarea>
+            <button type="submit" class="btn" id="new-post-btn">Post</button>
+         </form>
+         {% endif %}
+      </div>
+   </div>
+</div>
+{% endif %}
+<h4 class="page-title">All Posts</h4>
+<div class="col-md-8 " style="margin-top:1%; margin-left:23%;">
+   {% for post in posts %}
+   <div class="card mb-4" data-post_id="{{ post.id }}" >
+      <div class="card-header border-0">
+         <div class="header-div">
+            <a href="{% url 'profile' username=post.user.username %}">
+            <img src="{{ post.user.profile_photo }}" width="30" height="28" class="index-profile-photo">
+            </a>
+            <h5 class="card-title mb-0">
+               <a class="user-name" href="{% url 'profile' username=post.user.username %}">
+               {{ post.user }}
+               </a>
+            </h5>
+         </div>
+         <div>
+            <p class="card-subtitle mb-0 text-muted h8">{{ post.timestamp }}</p>
+         </div>
+      </div>
+      <div class="card-body">
+         <p class="card-text" id="content_{{ post.id }}" >{{ post.content }}</p>
+         <div id="editPost_{{ post.id }}" class="edit-post-option">
+            <textarea id="textarea_{{ post.id }}" class="form-control edit-content-textarea">{{ post.content }}</textarea>
+            <br>
+            <button type="button" class="btn save-post-btn" onclick="savePost({{ post.id }})">Save</button>
+            <button type="button" class="btn btn-secondary" onclick="cancelEdit({{ post.id }})">Cancel</button>
+         </div>
+      </div>
+      <div class="card-footer border-0">
+         <div class="row">
+            <div class="col-md-6 d-flex justify-content-start align-items-center">
+               {% if user.is_authenticated %}
+               {% if post.id in post_liked_ids %}
+               <!-- Already liked the post -->
+               <button class="hrts btn btn-light text-danger fas fa-heart" onclick="likeFunction({{post.id}}, {{post_liked_ids}})" id="{{ post.id }}"></button>
+               {% else %}
+               <!-- Not liked yet -->
+               <button class="hrts btn btn-light far fa-heart" onclick="likeFunction({{post.id}}, {{post_liked_ids}}, {{post.num_likes}})" id="{{ post.id }}"></button>
+               {% endif %}
+               &nbsp;
+               {% endif %}
+               <span id="likes-count-{{ post.id }}">{{ post.num_likes }} {% if post.num_likes == 1%} like {% else %} likes {% endif %}</span>
+               &nbsp;
+            </div>
+            <div class="col-md-6 d-flex justify-content-end align-items-center">
+               {% if user.is_authenticated and user == post.user%}
+               <button class="fa fa-pencil btn btn-light btn-sm card-subtitle mb-0 edit-pencil" onclick="editPost({{ post.id }})"></button>
+               {% endif %} 
+            </div>
+         </div>
+      </div>
+   </div>
+   {% empty %}
+   <p>No posts to show.</p>
+   {% endfor %}
+</div>
+{% if posts.paginator.num_pages > 1 %}
+<div class="pagination">
+   {% if posts.has_previous %}
+   <a class="btn btn-light" href="?page={{ posts.previous_page_number }}">&lsaquo; Previous</a>
+   {% endif %}
+   {% for num in posts.paginator.page_range %}
+   {% if num == posts.number %}
+   <a class="btn btn-light active" href="?page={{ num }}">{{ num }}</a>
+   {% elif num > posts.number|add:"-3" and num < posts.number|add:"3" %}
+   <a class="btn btn-light" href="?page={{ num }}">{{ num }}</a>
+   {% endif %}
+   {% endfor %}
+   {% if posts.has_next %}
+   <a class="btn btn-light" href="?page={{ posts.next_page_number }}">Next &rsaquo;</a>
+   {% endif %}
+</div>
+{% endif %}
+<script src="{% static 'network/like.js' %}"></script>
+{% endblock %}
