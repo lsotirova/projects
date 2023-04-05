@@ -1,0 +1,42 @@
+html, body {
+    background-image: url('https://4kwallpapers.com/images/wallpapers/sand-dunes-desert-clear-sky-blue-sky-sunny-day-daylight-1920x1080-3479.jpg');
+    height: 70vh;
+    left:10%;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+textarea {
+    min-height: 400px;
+}
+.read-email {
+    font-weight: normal;
+    background-color: rgba(223, 221, 221, 0.2);
+}
+
+.unread-email {
+    font-weight: bold;
+    background-color: rgb(255, 255, 255, 0.8);
+}
+#email-card {
+  opacity: 0.9;
+  margin-bottom: 20px;
+}
+
+#compose-form {
+    opacity: 0.9;
+}
+
+.card-body {
+    padding: 5px; /* reduce the padding */
+    padding-top: 9px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 8px; /* reduce the margin */
+    height: auto; /* set the height to auto to adjust to the content */
+  }
+  
+  #cs50 {
+    
+    font-family: 'Roboto Serif', serif;
+  }
