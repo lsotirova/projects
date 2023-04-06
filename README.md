@@ -1,5 +1,7 @@
 # Email Client Single Page App
 
+#### Video Demo:  <https://youtu.be/Wax8Pio_3eY>
+
 This is a single-page application email client built using JavaScript, HTML, and CSS. The app is implemented inside the `inbox.js` file, and all the requirements listed below are fulfilled:
 
 ## Send Mail
