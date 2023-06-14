@@ -1,0 +1,56 @@
+{% extends "webapp/layout.html" %} {% block body %}
+<div class="search-content">
+  <h2 class="search-results-title">Search Results</h2>
+  <div class="row" style="overflow-x: auto">
+    {% if recipes %} {% for recipe in recipes %}
+    <div
+      class="card recipes-cards"
+      style="display: inline-block; margin: 10px; width: 17rem; height: 17.5rem"
+    >
+      <a href="{% url 'recipe_detail' recipe.pk %}">
+        <div class="recipes-img-wrapper">
+          <img
+            class="card-img-top"
+            id="search-img"
+            src="{{ recipe.img_url }}"
+            alt="{{ recipe.name }}"
+          />
+        </div>
+      </a>
+      <div class="card-body">
+        <h5 class="card-title">
+          <a class="recipe-name" href="{% url 'recipe_detail' recipe.pk %}"
+            >{{ recipe.name }}</a
+          >
+        </h5>
+      </div>
+    </div>
+    {% endfor %} {% else %} {% if recipes2 %} {% for recipe in recipes2 %}
+    <div
+      class="card recipes-cards"
+      style="display: inline-block; margin: 10px; width: 17rem; height: 17.5rem"
+    >
+      <a href="{% url 'recipe_detail' recipe.pk %}">
+        <div class="recipes-img-wrapper">
+          <img
+            class="card-img-top"
+            id="search-img"
+            src="{{ recipe.img_url }}"
+            alt="{{ recipe.name }}"
+          />
+        </div>
+      </a>
+      <div class="card-body">
+        <h5 class="card-title">
+          <a class="recipe-name" href="{% url 'recipe_detail' recipe.pk %}"
+            >{{ recipe.name }}</a
+          >
+        </h5>
+      </div>
+    </div>
+    {% endfor %} {% else %}
+    <h5 id="no-results">No results found</h5>
+    {% endif %} {% endif %}
+  </div>
+</div>
+{% endblock %}

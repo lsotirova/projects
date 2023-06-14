@@ -1,0 +1,47 @@
+{% extends "webapp/layout.html" %} {% block body %}
+<div class="my-plan-page">
+  <h2 class="page-title">Create My Plan</h2>
+  <form method="post" action="{% url 'save_my_plan' %}">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="datePicker" class="date-label">Select a Date:</label>
+      <input
+        type="date"
+        class="form-control date-input"
+        id="datePicker"
+        name="date"
+      />
+    </div>
+    <h3>Categories</h3>
+    <div class="form-group">
+      <br />
+      <div class="category-dropdown">
+        {% for category, recipes in recipes_by_category.items %}
+        <div class="category-option">
+          <br />
+          <select name="myRecipes" class="custom-select my-recipes-dropdown">
+            <option disabled selected>{{ category.category_name }}</option>
+            {% for myRecipe in recipes %}
+            <option
+              value="{{ myRecipe.recipe.id }}"
+              data-image="{{ myRecipe.recipe.img_url }}"
+            >
+              {{ myRecipe.recipe.name }}
+            </option>
+            {% endfor %}
+          </select>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="button-container">
+      <a class="my-planner-a" href="{% url 'my_planner' %}">
+        <button type="button" class="btn btn-secondary">Go Back</button></a
+      >
+      <button type="submit" class="btn btn-info">Save</button>
+    </div>
+  </form>
+</div>
+
+{% endblock %}

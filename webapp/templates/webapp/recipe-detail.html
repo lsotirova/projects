@@ -1,0 +1,43 @@
+{% extends "webapp/layout.html" %} {% block body %}
+<div class="recipe-detail">
+  <div class="card-of-details">
+    <img
+      class="card-img-top"
+      src="{{ recipe.img_url }}"
+      alt="{{ recipe.name }}"
+    />
+    <div class="card-body" id="recipe-details">
+      <h2 class="card-title" id="recipe-name">{{ recipe.name }}</h2>
+
+      <h5 class="card-subtitle mb-2 text-muted">
+        Cooking time: {{ recipe.cook_time }} minutes
+      </h5>
+      <br />
+      <ul class="list-unstyled">
+        {% for ingredient in recipe.ingredients.all %}
+        <li class="ingredient-tag-details">{{ ingredient.ingredient_name }}</li>
+        {% endfor %}
+      </ul>
+      <hr />
+      <p class="card-text">{{ recipe.directions|safe }}</p>
+      {% if user.is_authenticated %} {% if recipe.id in recipe_liked_ids %}
+      <button
+        class="btn btn-warning float-right recipe-add-button btn-sm"
+        onclick="recipeFunction({{ recipe.id }}, {{ recipe_liked_ids|safe }})"
+        id="{{ recipe.id }}"
+      >
+        Remove from My Recipes
+      </button>
+      {% else %}
+      <button
+        class="btn btn-success float-right recipe-add-button btn-sm"
+        onclick="recipeFunction({{ recipe.id }}, {{ recipe_liked_ids|safe }})"
+        id="{{ recipe.id }}"
+      >
+        Add to My Recipes
+      </button>
+      {% endif %} {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

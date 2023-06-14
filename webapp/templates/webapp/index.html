@@ -1,0 +1,146 @@
+{% extends "webapp/layout.html" %} {% block body %}
+<br />
+
+{% if not user.is_authenticated %}
+<section class="main">
+  
+    <div class="row col-md-7" id="featured">
+      <div class="col-md-6" id="welcome-info">
+        <h2>Try Vegan</h2>
+        <div class="text-wrapper">
+          <p style="text-align: justify; margin-right: 2%">
+            VeggieVisionary aims to inspire and support worldwide veganism. Our
+            platform offers compelling content, educating about the ethical,
+            environmental, and health benefits of a plant-based lifestyle. With
+            a vibrant community, we connect like-minded individuals, share
+            experiences, and provide guidance. Through delicious recipes, we
+            showcase the abundance of vegan culinary possibilities, promoting
+            compassion and sustainability.
+          </p>
+          <a href="{% url 'register' %}" class="readMore">Sign up</a>
+        </div>
+      </div>
+      <div class="col-md-6"style="padding-top: 1.5rem;">
+        <div class="img-wrapper">
+          <img
+            src="https://del.h-cdn.co/assets/17/05/1600x1200/sd-aspect-1486076424-gettyimages-638858678.jpg"
+            alt="Sesame Broccoli"
+            style="max-width: 100%; height: auto; "
+          />
+        </div>
+      </div>
+    </div>
+  
+</section>
+{% else %}
+    <section class="card-section logged-in-section">
+      <div class="card logged-in-card">
+        <img
+          src="https://domf5oio6qrcr.cloudfront.net/medialibrary/10039/vegan-food-bowl.jpg"
+          alt="Vegan Food"
+          class="card-img vegan-food-img"
+        />
+        <div class="card-content vegan-benefits-content">
+          <h2 class="card-title vegan-benefits-title">
+            BENEFITS OF BEING VEGAN
+          </h2>
+          <p class="card-text vegan-benefits-text">
+            Being vegan offers numerous benefits that extend beyond personal
+            health. Firstly, it promotes compassion towards animals by reducing
+            their suffering in factory farming and inhumane practices. Secondly,
+            it has a positive impact on the environment by reducing
+            deforestation, greenhouse gas emissions, and water pollution
+            associated with animal agriculture. Thirdly, a well-planned vegan
+            diet can lower the risk of chronic diseases, such as heart disease
+            and certain types of cancer, while providing essential nutrients.
+            Lastly, embracing veganism contributes to sustainable food systems,
+            easing the strain on limited resources and promoting equitable food
+            distribution. Overall, being vegan is a conscientious choice that
+            fosters a more compassionate, healthier, and sustainable world.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    {% endif %}
+    <br />
+    <section class="photo-section">
+      <div class="container photos-container">
+        <div class="row justify-content-center">
+          <div class="row justify-content-center">
+            {% for category in categories %}
+            
+              <div class="col-md-2 photo-category-container">
+                <a style="text-decoration: none; color:black;"href="{% url 'category_selection' category=category.category_name %}">
+                <h4 class="photo-title">{{ category.category_name }}</h4>
+                <div class="photo-wrapper">
+                  
+                    <div class="image-container">
+                      <img src="{{ category.category_image }}" alt="{{ category.category_name }}" class="rounded-circle index-category-image">
+                    </div>
+                 
+                </div>
+              </a>
+              </div>
+            
+            {% endfor %}
+          </div>
+          
+        </div>
+      </div>
+    </section>
+    
+    
+    
+    <section class="search-section text-center col-md-7">
+      <h2 class="card-title">Healthy Recipes <i class='fas fa-leaf' style="color:green; font-size:1.7rem;"></i></h2>
+      <form id="myForm" action="{% url 'search_ingredient' %}" method="post" class="mx-auto" onsubmit="clearInput()">
+
+        {% csrf_token %}
+        <div class="form-group search-healthy-recipes">
+          <input
+            type="text"
+            class="form-control"
+            id="search-field"
+            name="q"
+            placeholder=""
+          />
+          <button id="magnifying-btn" type="submit">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="ingredient-checkboxes">
+          {% for ingredient in ingredients %}
+          <div class="ingredient-tags">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              name="ingredients"
+              value="{{ ingredient.id }}"
+              id="ingredient_{{ ingredient.id }}"
+            />
+            <label
+              class="form-check-label ingredient-tag"
+              for="ingredient_{{ ingredient.id }}"
+              >{{ ingredient.ingredient_name }}</label
+            >
+          </div>
+          {% if forloop.counter|divisibleby:5 %}
+          <br />
+          {% endif %} {% endfor %}
+        </div>
+        <button type="submit" id="search-btn" class="btn">Search</button>
+      </form>
+    </section>
+    <br>
+
+  
+  </div>
+  <script>
+    function clearInput() {
+      setTimeout(function() {
+        document.getElementById("search-field").value = "";
+      }, 0);
+    }
+  </script>
+  {% endblock %}

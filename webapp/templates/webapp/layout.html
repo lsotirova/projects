@@ -1,0 +1,114 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>VeggieVisionary</title>
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link href="{% static 'webapp/styles.css' %}" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+      integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wght@8..144,600&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="{% static 'webapp/webapp.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <section id="header">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+          <div class="container">
+            <a href="{% url 'index' %}" class="navbar-brand"
+              ><i
+                class="fa fa-seedling"
+                style="font-size: 24px; color: green"
+              ></i>
+              VeggieVisionary</a
+            >
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-target="#navbarSupportedContent"
+              data-toggle="collapse"
+              aria-control="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle Navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                  <a href="{% url 'index' %}" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item active">
+                  <a href="{% url 'all-recipes' %}" class="nav-link">Recipes</a>
+                </li>
+                <li class="nav-item active">
+                  <a href="{% url 'my_account_recipes' %}" class="nav-link"
+                    >My Recipe Vault</a
+                  >
+                </li>
+                {% if user.is_authenticated %}
+                <li class="nav-item active">
+                  <a href="{% url 'logout' %}" class="nav-link">Logout</a>
+                </li>
+                {% else %}
+                <li class="nav-item active">
+                  <div class="sign-up-in row">
+                    <a href="{% url 'login' %}" class="nav-link">Sign in</a>
+                    <span style="font-size: 1.5rem">|</span>
+                    <a href="{% url 'register' %}" class="nav-link">Sign up</a>
+                  </div>
+                </li>
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </section>
+
+    <div class="body">{% block body %} {% endblock %}</div>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

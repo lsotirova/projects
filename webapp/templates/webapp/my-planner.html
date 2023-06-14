@@ -1,0 +1,87 @@
+{% extends "webapp/layout.html" %} {% block body %}
+<div class="my-plans-page">
+  <h2 class="page-title">My Healthy Plan</h2>
+  <button class="btn btn-info" id="btn-add-plans">
+    <a class="my-planner-a" href="{% url 'my_plan_form' %}">Add Recipes</a>
+  </button>
+  {% for grouped_plan in grouped_plans %}
+  <div class="plan-card col-md-7" id="plan-card-{{ grouped_plan.date }}">
+    <h4 class="plan-date">{{ grouped_plan.date }}</h4>
+    <div class="grouped-plans-container">
+      {% for plan in grouped_plan.plans %}
+      <div class="recipe-list row">
+        {% for recipe in plan.recipes.all %}
+        <div
+          class="recipe-card"
+          data-plan-id="{{ plan.id }}"
+          data-recipe-id="{{ recipe.id }}"
+        >
+          <a
+            class="delete-recipe-button"
+            onclick="deleteRecipe({{ plan.id }}, {{ recipe.id }})"
+          >
+            <span class="delete-icon">&times;</span>
+          </a>
+          <a class="recipe-name" href="{% url 'recipe_detail' recipe.pk %}">
+            <h5 class="recipe-name">{{ recipe.name }}</h5>
+            <div class="recipes-img-wrapper">
+              <img
+                src="{{ recipe.img_url }}"
+                alt="{{ recipe.name }}"
+                class="recipe-image"
+              />
+            </div>
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% empty %} {% endfor %}
+</div>
+
+<script>
+  function deleteRecipe(planId, recipeId) {
+    console.log("Deleting recipe:", planId, recipeId); // Debugging statement
+
+    const url = `/delete_recipe_from_plan/${planId}/${recipeId}/`;
+
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "X-CSRFToken": "{{ csrf_token }}",
+      },
+    })
+      .then((response) => {
+        if (response.ok) {
+          const recipeCard = document.querySelector(
+            `.recipe-card[data-plan-id="${planId}"][data-recipe-id="${recipeId}"]`
+          );
+          console.log("Recipe card:", recipeCard); // Debugging statement
+          if (recipeCard) {
+            recipeCard.remove();
+          }
+
+          const recipeList = document.querySelector(
+            `.recipe-list[data-plan-id="${planId}"]`
+          );
+          console.log("Recipe list:", recipeList); // Debugging statement
+          if (recipeList && recipeList.children.length === 0) {
+            const planCard = document.querySelector(`#plan-card-${planId}`);
+            console.log("Plan card:", planCard); // Debugging statement
+            if (planCard) {
+              planCard.remove();
+            }
+          }
+        } else {
+          throw new Error("Error deleting recipe.");
+        }
+      })
+      .catch((error) => {
+        console.error("Error deleting recipe:", error);
+      });
+  }
+</script>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "webapp/layout.html" %} {% block body %}
+
+<div class="search-content">
+  <h2 class="search-results-title">{{ selected_category }}</h2>
+  <a class="my-category-a" href="{% url 'index' %}">
+   
+  <div class="row" style="overflow-x: auto">
+    {% for recipe in recipes %}
+    <div
+      class="card recipes-cards"
+      style="display: inline-block; margin: 10px; width: 17rem; height: 17.5rem"
+    >
+      <a href="{% url 'recipe_detail' recipe.pk %}">
+        <div class="recipes-img-wrapper">
+        <img
+          class="card-img-top"
+          id="search-img"
+          src="{{ recipe.img_url }}"
+          alt="{{ recipe.name }}"
+        />
+        </div>
+      </a>
+      <div class="card-body">
+        <h5 class="card-title recipes-title">
+          <a class="recipe-name" href="{% url 'recipe_detail' recipe.pk %}"
+            >{{ recipe.name }}</a
+          >
+        </h5>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

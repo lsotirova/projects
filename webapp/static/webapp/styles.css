@@ -1,0 +1,682 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+body,
+html {
+  background-image: url("");
+  background-repeat: no-repeat;
+}
+
+#header {
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+}
+
+.navbar {
+  padding: 3.125rem;
+  position: fixed;
+  top: 0;
+}
+.navbar-scroll {
+  background-color: white !important;
+}
+
+.navbar-brand {
+  font-family: "Roboto Serif", serif;
+  font-weight: bold;
+  font-size: 1.5em !important;
+  color: #000000 !important;
+}
+
+.nav-item {
+  font-weight: 600;
+  text-transform: uppercase;
+  padding-left: 3.125rem;
+}
+
+.nav-link {
+  color: #000000 !important;
+  letter-spacing: 0.125em;
+  font-size: 1em;
+  font-weight: 700;
+}
+
+.nav-link:hover {
+  background: green !important;
+  color: #ffffff !important;
+  border-radius: 0.3125rem;
+  transition: all 0.6s ease 0s;
+}
+
+.main h2 {
+  font-size: 2.2em;
+  color: #000000;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.main p {
+  margin-top: 1em;
+  padding: 0;
+  font-size: 1rem;
+  color: #000000;
+  padding-bottom: 1.5625rem;
+}
+
+.main .readMore {
+  background: green;
+  color: #fff;
+  border-radius: 0.3125rem;
+  padding: 0.625rem 1.25rem;
+  text-decoration: none;
+}
+
+.main .readMore:hover {
+  background: rgb(28, 146, 28);
+  color: #fff;
+  border-radius: 0.3125rem;
+  padding: 0.625rem 1.25rem;
+  text-decoration: none;
+}
+
+#welcome-info {
+  color: #000;
+  padding: 1.25rem;
+  border-radius: 0.625rem;
+}
+
+.img-wrapper {
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 5rem;
+  margin: 1rem;
+}
+
+.img-wrapper img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 0; /* Reset the default margin-top */
+  transition: transform 3.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.img-wrapper img:hover {
+  transform: scale(1.2);
+}
+
+#featured {
+  background-color: rgba(222, 222, 222, 0.288);
+  border-radius: 1rem !important;
+  border: 1px solid #ebe9e9;
+  color: #000;
+  padding: 0.625rem;
+  margin: auto;
+  box-shadow: 0px 0.1875rem 1.25rem rgba(0, 0, 0, 0.1);
+  background-position: center;
+  margin-top: 6rem;
+  margin-bottom: 4rem;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+@media only screen and (max-width: 48em) {
+  /* styles for screens smaller than 768px, such as mobile devices */
+  body {
+    font-size: 0.875rem;
+  }
+}
+
+@media only screen and (min-width: 48em) {
+  /* styles for screens larger than or equal to 768px, such as tablets and desktops */
+  body {
+    font-size: 1rem;
+  }
+}
+
+.search-content {
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  padding: 6.375rem 0 6.25rem;
+  width: 80%; /* Set the width of the "main" section */
+  margin: 0 auto !important;
+  display: flex;
+  margin-top: 3.125rem;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.results {
+  margin-top: 1.875rem;
+  list-style: none;
+  padding: 0;
+}
+
+.results li {
+  margin-bottom: 0.625rem;
+  font-size: 1.125rem;
+}
+
+#search-field {
+  flex-grow: 1;
+  height: 2.5rem;
+  width: 30rem;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 1rem 1rem;
+  border: 1px solid #dbdada;
+  border-radius: 1.2rem;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+#search-field:hover,
+#search-field:focus {
+  border-color: #dbdada;
+  box-shadow: 0px 0.1875rem 0.25rem rgba(83, 83, 83, 0.1),
+    0px 0px 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+#search-btn {
+  margin-top: 2%;
+  margin-bottom: 2%;
+  width: 8rem;
+  background: green;
+  color: #fff;
+  border-radius: 0.3125rem;
+  padding: 0.425rem 1.25rem;
+  text-decoration: none;
+}
+#search-btn:hover {
+  background: rgb(28, 146, 28);
+}
+
+#search-img {
+  max-width: 18.75rem;
+  max-height: 12.5rem;
+}
+
+.recipe-detail {
+  padding: 4.125rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.card-of-details {
+  width: 80%;
+  max-width: 50rem;
+  margin: 0 auto;
+  box-shadow: 0px 0.1875rem 1.25rem rgba(0, 0, 0, 0.1);
+}
+.recipes-cards {
+  box-shadow: 0px 0.1875rem 1.25rem rgba(83, 83, 83, 0.1);
+}
+.card-img-top {
+  height: 25rem;
+  object-fit: cover;
+  border-top-left-radius: calc(0.25rem - 1px);
+  border-top-right-radius: calc(0.25rem - 1px);
+}
+
+.card-body {
+  padding: 1.875rem;
+}
+
+#recipe-name {
+  font-size: 2.5rem;
+  margin-bottom: 0.625rem;
+}
+
+.card-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.ingredient-tag-details {
+  display: inline-block;
+  background-color: #f2f2f2;
+  color: #333;
+  padding: 0.3125rem 0.625rem;
+  border-radius: 1.25rem;
+  margin-right: 0.625rem;
+  margin-bottom: 0.625rem;
+  font-size: 1.2rem;
+}
+
+hr {
+  border-top: 0.0625rem solid #f2f2f2;
+  margin-top: 1.875rem;
+  margin-bottom: 1.875rem;
+}
+
+.card-text {
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+.card-title {
+  margin-bottom: 1rem;
+}
+#recipe-details {
+  margin: 2%;
+}
+
+.register-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+}
+
+.user-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.register-field {
+  width: 100%;
+  max-width: 20rem;
+  padding: 0.75rem 1rem;
+  border: 2px solid #ccc;
+  border-radius: 2rem;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.register-field:hover,
+.register-field:focus {
+  border-color: #aaa;
+}
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 65vh;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-control {
+  box-sizing: border-box; /* Add this line to include padding and border in the width calculation */
+  padding: 0.75rem 1rem;
+  border: 2px solid #ccc;
+  border-radius: 2rem;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.form-control:hover,
+.form-control:focus {
+  border-color: #aaa;
+}
+.search-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3.125rem 0;
+  box-shadow: 0px 0.5rem 2.5rem rgba(0, 0, 0, 0.1);
+  margin: auto;
+  border-radius: 1rem;
+  border: 1px solid #ebe9e9;
+}
+
+.ingredient-tags {
+  display: inline-block;
+  position: relative;
+  margin-right: 0.625rem;
+  margin-bottom: 0.625rem;
+}
+.ingredient-tag {
+  background-color: #f2f2f2;
+  color: #333;
+  padding: 0.3125rem 0.625rem;
+  border-radius: 1.25rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.ingredient-tags input[type="checkbox"] {
+  display: none;
+}
+.ingredient-tag-clicked {
+  background-color: #c9c9c9;
+  display: inline-block;
+  color: #333;
+  padding: 0.3125rem 0.625rem;
+  border-radius: 1.25rem;
+  font-size: 1.2rem;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.search-results-title {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3rem;
+}
+.recipe-name {
+  text-decoration: none;
+  color: black;
+}
+.recipe-name:hover {
+  text-decoration: none;
+  color: inherit;
+}
+.register-container {
+  width: 100%;
+  height: 36.5rem; /* Adjust the height as desired */
+  /*background-image: url("https://img.freepik.com/free-photo/flat-lay-salad-with-fried-egg-tomatoes-with-blank-notebook_23-2148700433.jpg?w=2000");*/
+  background-size: cover;
+  background-position: center;
+}
+.login-container {
+  width: 100%;
+  height: 30.5rem; /* Adjust the height as desired */
+  /*background-image: url("https://img.freepik.com/free-photo/flat-lay-salad-with-fried-egg-tomatoes-with-blank-notebook_23-2148700433.jpg?w=2000");*/
+  background-size: cover;
+  background-position: center;
+}
+.logged-in-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 6rem;
+  width: 55rem !important;
+  margin: auto;
+  margin-bottom: 4rem;
+}
+
+.logged-in-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 1rem !important;
+  box-shadow: 0px 0.1875rem 1.25rem rgba(0, 0, 0, 0.1);
+}
+
+.vegan-food-img {
+  border-top-left-radius: 1rem !important;
+  border-top-right-radius: 1rem !important;
+  object-fit: cover;
+  width: 100%;
+  height: 15rem;
+}
+
+.vegan-benefits-content {
+  padding: 1.25rem;
+}
+
+.vegan-benefits-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.625rem;
+  text-align: center;
+}
+
+.vegan-benefits-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.form-categories-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.form-group {
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+}
+.form-group label {
+  margin-right: 0.5rem;
+}
+#search-result-categories {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+#label-category {
+  margin-left: 1rem;
+  margin-right: 0.5rem;
+  font-size: 1.1rem;
+}
+.index-category-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+
+.image-container {
+  width: 7.125rem;
+  height: 7.125rem;
+  overflow: hidden;
+  border-radius: 50%;
+  margin: 0 auto;
+  position: relative;
+  box-shadow: 0px 0.1875rem 1.25rem rgba(0, 0, 0, 0.1);
+}
+
+.image-container img {
+  transition: transform 1.2s cubic-bezier(0.25, 0.1, 0.25, 1); /* Adjust the transition duration to make it slower or faster */
+}
+.image-container:hover .index-category-image {
+  transform: scale(1.1);
+}
+
+.photo-section {
+  margin-bottom: 5rem; /* Adjust the margin value as desired */
+  display: flex;
+  justify-content: center;
+}
+
+.photo-category-container {
+  text-align: center;
+}
+
+.recipe-add-button {
+  margin-bottom: 2rem;
+}
+.sign-up-in {
+  text-align: center;
+}
+.my-plan-page {
+  padding: 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.page-title {
+  margin-bottom: 1.5rem;
+}
+
+.date-label {
+  margin-bottom: 0.625rem;
+  font-weight: bold;
+  margin: auto;
+}
+
+.date-input {
+  width: 9.375rem;
+}
+.my-recipes-dropdown {
+  width: 30rem; /* Adjust the width as needed */
+  height: auto; /* Allow the height to adjust based on content */
+}
+
+.recipe-option {
+  display: flex;
+  align-items: center;
+}
+
+.recipe-image {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 8px; /* Add some spacing between the image and text */
+}
+.my-plans-page {
+  padding: 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.plan-card {
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  padding: 2rem;
+}
+
+.plan-date {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.recipe-list {
+  margin-left: 5% !important;
+  overflow-x: auto;
+  display: flex;
+  flex-wrap: wrap; /* Added */
+  justify-content: flex-start; /* Changed */
+  margin-left: -1rem; /* Added */
+  margin-right: -1rem; /* Added */
+}
+
+.recipe-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 1rem;
+  padding: 1rem;
+  text-align: center;
+  width: 12rem;
+}
+
+.recipe-name {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.recipe-description {
+  margin-bottom: 0.5rem;
+}
+
+.recipe-image {
+  width: 100%;
+  height: auto;
+  max-height: 8rem;
+  border-radius: 5px;
+}
+
+.my-planner-a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+.my-planner-a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+.btn-my-planner {
+  margin-left: 4%;
+  width: 10rem;
+}
+#btn-add-plans {
+  margin-bottom: 3%;
+}
+.delete-recipe-button {
+  float: right;
+  margin: -10px -2px 2px 2px;
+  padding: 2px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  top: 0;
+}
+.delete-icon {
+  font-size: 20px;
+}
+.main-index-container {
+  width: 65rem;
+}
+#try-vegan {
+  text-align: center;
+}
+.register-login-links {
+  text-decoration: none;
+  color: rgb(1, 134, 1);
+}
+.register-login-links:hover {
+  text-decoration: none;
+  color: rgb(1, 158, 1);
+}
+
+.form-group {
+  position: relative;
+}
+
+.form-control {
+  padding-right: 50px; /* Add space for the magnifying glass icon */
+}
+
+#magnifying-btn {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  border: none;
+  background: none;
+  outline: none;
+}
+.search-healthy-recipes {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.recipes-title {
+  text-align: center;
+}
+
+.recipes-img-wrapper {
+  overflow: hidden;
+}
+
+.recipes-img-wrapper img {
+  transition: transform 2.1s cubic-bezier(0.25, 0.1, 0.25, 1); /* Adjust the transition duration to make it slower or faster */
+}
+
+.recipes-img-wrapper img:hover {
+  transform: scale(1.1);
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+#no-results {
+  margin: auto !important;
+}
+.register-login-p {
+  margin-top: 0.6rem;
+}
