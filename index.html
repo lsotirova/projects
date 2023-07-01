@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MEGAPARTS BORSA TASK</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="navbar-container">
+        <div class="topnav">
+          <img
+            class="img-logo-large"
+            src="images/Megaparts-Logo-Light-Large.png"
+            alt="MegaParts Logo"
+            class="logo-large"
+          />
+          <img src="images/dropdown.png" alt="Dropdown" class="dropdown" />
+          <div class="search-div">
+            <div class="input-group">
+              <input type="text" class="searchbar" placeholder="Търсене..." />
+              <button id="magnifying-btn" type="submit">
+                <img src="images/search.png" alt="Search" class="searchbtn" />
+              </button>
+            </div>
+          </div>
+
+          <div class="logos">
+            <a href=""><img src="images/E.png" alt="E" class="e" /></a>
+            <a href="https://www.youtube.com/c/MEGAPARTS_Media_Production"
+              ><img src="images/Youtube.png" alt="Youtube" class="youtube"
+            /></a>
+            <a href="https://www.facebook.com/megaparts.bg"
+              ><img src="images/F.png" alt="Facebook" class="fb"
+            /></a>
+            <a href="" class="phone1"
+              ><img src="images/phone.png" alt="Phone" class="phone" />
+              <span class="phone-num">02 437 32 48</span></a
+            >
+          </div>
+        </div>
+        <div class="bottom-nav">
+          <div class="lrg-btns">
+            <button class="autoparts blue">
+              <img src="images/3.png" alt="Autoparts" class="small-mb-ics" />
+              АВТОЧАСТИ
+            </button>
+            <button class="autoparts yellow">
+              <img
+                src="images/2.png"
+                alt="Car"
+                class="small-mb-ics"
+              />ИЗКУПУВАНЕ
+            </button>
+            <button class="autoparts light-blue">
+              <img src="images/4.png" alt="Judge" class="small-mb-ics" />ТЪРГОВЕ
+            </button>
+            <button class="autoparts green">
+              <img src="images/1.png" alt="Market" class="small-mb-ics" />БОРСА
+            </button>
+            <button class="autoparts purple">
+              <img src="images/5.png" alt="Games" class="small-mb-ics" />ИГРИ
+            </button>
+            <button class="autoparts red">
+              <img src="images/6.png" alt="News" class="small-mb-ics" />НОВИНИ
+            </button>
+          </div>
+
+          <div class="small-btns">
+            <button class="circle-btn">
+              <img src="images/Group 322.png" alt="Circle" class="circle-img" />
+            </button>
+            <button class="dark-btns">
+              <img src="images/Vector (2).png" alt="Heart" />
+            </button>
+            <button class="dark-btns">
+              <img src="images/Group 205.png" alt="Message" />
+            </button>
+            <button class="dark-btns">
+              <img src="images/Vector (4).png" alt="Shop" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lrg-text">
+      <div class="titles">
+        <h1 class="title">Направи запитване лесно и бързо!</h1>
+        <p>
+          <span class="number">1821</span>
+          <span class="active-text">активни клиентски запитвания </span>
+        </p>
+      </div>
+
+      <div class="lrg-green-btn">
+        <button class="green-bookmark">
+          <img src="images/bookmark.png" alt="Bookmark" /> Направи запитване
+        </button>
+      </div>
+    </div>
+    <div class="filters">
+      <div class="filter-title">
+        <h1 class="filter">Филтри</h1>
+        <a href="" class="clear-filters">
+          <img src="images/refresh.png" alt="refresh" />Изчисти филтрите
+        </a>
+      </div>
+      <div class="filter-select">
+        <select
+          class="blue-select form-select form-select"
+          aria-label=".form-select example"
+        >
+          <option selected>Марка</option>
+        </select>
+        <select
+          class="blue-select form-select form-select"
+          aria-label=".form-select example"
+        >
+          <option selected>Категория</option>
+        </select>
+        <select
+          class="blue-select form-select form-select"
+          aria-label=".form-select example"
+        >
+          <option selected>Населено място</option>
+        </select>
+        <select
+          class="grey-select form-select form-select"
+          aria-label=".form-select example"
+        >
+          <option selected>Модел</option>
+        </select>
+        <select
+          class="grey-select form-select form-select"
+          aria-label=".form-select example"
+        >
+          <option selected>Подкатегория</option>
+        </select>
+        <button class="filter-btn">Приложи</button>
+      </div>
+    </div>
+    <hr class="mobile-hr" />
+    <div class="main-container">
+      <div class="sidebar">
+        <div class="sidebar-btns">
+          <button class="orders orders1">Поръчки</button>
+          <button class="orders orders2">Моите запитвания</button>
+        </div>
+        <hr class="mobile-hr" />
+        <hr />
+        <div class="sidebar-list">
+          <ul class="sidebar-ul">
+            <li>
+              <img src="images/file.png" alt="New" class="small-icons" />
+              Нови (1821)
+            </li>
+            <li>
+              <img src="images/disk.png" alt="Offers" class="small-icons" />
+              Оферирани (0)
+            </li>
+            <li>
+              <img src="images/cube.png" alt="Notebook" class="small-icons" />
+              Бележник (0)
+            </li>
+            <li>
+              <img src="images/eye.png" alt="Viewed" class="small-icons" />
+              Прегледани (0)
+            </li>
+            <hr />
+            <li>
+              <img
+                src="images/question.png"
+                alt="Questions and Answers"
+                class="small-icons"
+              />
+              Въпроси и отговори
+            </li>
+          </ul>
+        </div>
+        <div class="sidebar-ad">
+          <div class="sidebar-title">
+            <div class="ad-text">Ad</div>
+            <div class="ad-dots">&#8942;</div>
+          </div>
+          <div class="sidebar-ad-container">
+            <img src="images/keys.png" alt="Keys" class="keys" />
+            <div class="top-red">
+              <div class="top-red-text">Открийте своята  нова кола!</div>
+            </div>
+            <img src="images/car.png" alt="Car" class="car" />
+            <div class="bottom-red">
+              <button class="bottom-red-btn">
+                <div class="learn-more">НАУЧете ПОВЕЧЕ</div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="main-content">
+        <div class="main-titles">
+          <div class="left">
+            <select
+              class="small-select form-select form-select"
+              aria-label=".form-select example"
+            >
+              <option selected>Най-нови</option>
+            </select>
+            <a href="" class="clear-filters">
+              <img
+                src="images/refresh2.png"
+                alt="refresh2"
+                class="refresh2"
+              />Обнови списъка с обяви
+            </a>
+          </div>
+          <div class="right">
+            <div class="small-ics">
+              <img src="images/120.png" alt="120" class="red-icon" />120
+            </div>
+            <div class="small-ics">
+              <img src="images/10.png" alt="10" class="green-icon" />10
+            </div>
+            <div class="small-ics">
+              <img src="images/123.png" alt="123" class="settings-icon" />123
+            </div>
+          </div>
+          <div class="mobile-btns">
+            <button class="newest">Най-нови</button>
+            <button class="mobile-grey-btns">Без оферти</button>
+            <button class="mobile-grey-btns">Най-стари</button>
+          </div>
+        </div>
+        <div class="main-ads">
+          <div class="ad-container">
+            <div class="ad-card">
+              <div class="card-imgs">
+                <div class="main-img-container">
+                  <img
+                    src="images/main-large.png"
+                    alt="large-img"
+                    class="large-img"
+                  />
+                  <button class="example">Примерна снимка</button>
+                  <button class="heart-like">
+                    <img src="images/heart-btn.png" alt="Like" />
+                  </button>
+                </div>
+                <div class="small-imgs">
+                  <img
+                    src="images/main-small1.png"
+                    alt="small-img1"
+                    class="small-img1"
+                  />
+                  <img
+                    src="images/main-small2.png"
+                    alt="small-img2"
+                    class="small-img2"
+                  />
+                </div>
+              </div>
+              <div class="owner-time">
+                <div class="owner">
+                  <button class="owner-img">M</button>
+                  <div class="owner-name">
+                    <span class="first-name">Мартин,</span>
+                    <span class="city">Шумен</span>
+                  </div>
+                </div>
+                <div class="time">
+                  <span class="valid">Валидност</span>
+                  <span class="timer">48:18:16</span>
+                </div>
+              </div>
+              <hr class="main-ad-hr" />
+              <div class="main-lrg-content">
+                <button class="buying-green">КУПУВАМ</button>
+                <span class="large-main">
+                  Полуоска за Mercedes-Benz A-Class Hatchback (W168) (07.1997 -
+                  08.2004) A 140 (168.031, 168.131), 82 к.с., позиция: предна,
+                  дясна
+                </span>
+                <div class="smaller-main">
+                  <div>
+                    <span class="blue-offers">Получени оферти:</span>
+                    <span class="black-offers">9</span>
+                  </div>
+                  <div>
+                    <span class="blue-offers">Коментар: </span
+                    ><span class="black-offers"
+                      >Няма допълнителна информация.</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <hr class="main-ad-hr" />
+              <div class="additional-info">
+                <div class="info-left">
+                  <div class="left-top">
+                    <div>
+                      <span class="top-1">Кубатура: </span>
+                      <span class="top-2">1.4</span>
+                    </div>
+                    <div>
+                      <span class="top-1">Скоростна кутия: </span>
+                      <span class="top-2">Ръчни скорости</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="info-right">
+                  <div>
+                    <span class="top-1">Позиция: </span>
+                    <span class="top-2">Предна, дясна</span>
+                  </div>
+                  <div>
+                    <span class="top-1">Конски сили: </span>
+                    <span class="top-2">82</span>
+                  </div>
+                </div>
+              </div>
+              <div class="buttons-ad">
+                <div class="btn-ad-top">
+                  <button class="send-offer">
+                    Изпрати оферта
+                    <img src="images/arrow.png" alt="Arrow" class="arrow" />
+                  </button>
+                </div>
+                <div class="btn-ad-bottom">
+                  <button class="notebook-btn">
+                    <img
+                      src="images/ntb-img.png"
+                      alt="Notebook Image"
+                      class="ntb-img"
+                    />
+                    В бележника
+                  </button>
+                  <button class="seen">
+                    <img
+                      src="images/seen-img.png"
+                      alt="Seen Image"
+                      class="seen-img"
+                    />
+                    Прегледано
+                  </button>
+                  <button class="have-it">Имам го</button>
+                  <button class="check">За проверка</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ad-container">
+            <div class="ad-card">
+              <div class="card-imgs">
+                <div class="main-img-container">
+                  <img
+                    src="images/main-large.png"
+                    alt="large-img"
+                    class="large-img"
+                  />
+                  <button class="example">Примерна снимка</button>
+                  <button class="heart-like">
+                    <img src="images/heart-btn.png" alt="Like" />
+                  </button>
+                </div>
+                <div class="small-imgs">
+                  <img
+                    src="images/main-small1.png"
+                    alt="small-img1"
+                    class="small-img1"
+                  />
+                  <img
+                    src="images/main-small2.png"
+                    alt="small-img2"
+                    class="small-img2"
+                  />
+                </div>
+              </div>
+              <div class="owner-time">
+                <div class="owner">
+                  <button class="owner-img">M</button>
+                  <div class="owner-name">
+                    <span class="first-name">Мартин,</span>
+                    <span class="city">Шумен</span>
+                  </div>
+                </div>
+                <div class="time">
+                  <span class="valid">Валидност</span>
+                  <span class="timer">48:18:16</span>
+                </div>
+              </div>
+              <hr class="main-ad-hr" />
+              <div class="main-lrg-content">
+                <button class="buying-green">КУПУВАМ</button>
+                <span class="large-main">
+                  Полуоска за Mercedes-Benz A-Class Hatchback (W168) (07.1997 -
+                  08.2004) A 140 (168.031, 168.131), 82 к.с., позиция: предна,
+                  дясна
+                </span>
+                <div class="smaller-main">
+                  <div>
+                    <span class="blue-offers">Получени оферти:</span>
+                    <span class="black-offers">9</span>
+                  </div>
+                  <div>
+                    <span class="blue-offers">Коментар: </span
+                    ><span class="black-offers"
+                      >Няма допълнителна информация.</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <hr class="main-ad-hr" />
+              <div class="additional-info">
+                <div class="info-left">
+                  <div class="left-top">
+                    <div>
+                      <span class="top-1">Кубатура: </span>
+                      <span class="top-2">1.4</span>
+                    </div>
+                    <div>
+                      <span class="top-1">Скоростна кутия: </span>
+                      <span class="top-2">Ръчни скорости</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="info-right">
+                  <div>
+                    <span class="top-1">Позиция: </span>
+                    <span class="top-2">Предна, дясна</span>
+                  </div>
+                  <div>
+                    <span class="top-1">Конски сили: </span>
+                    <span class="top-2">82</span>
+                  </div>
+                </div>
+              </div>
+              <div class="buttons-ad">
+                <div class="btn-ad-top">
+                  <button class="send-offer">
+                    Изпрати оферта
+                    <img src="images/arrow.png" alt="Arrow" class="arrow" />
+                  </button>
+                </div>
+                <div class="btn-ad-bottom">
+                  <button class="notebook-btn">
+                    <img
+                      src="images/ntb-img.png"
+                      alt="Notebook Image"
+                      class="ntb-img"
+                    />
+                    В бележника
+                  </button>
+                  <button class="seen">
+                    <img
+                      src="images/seen-img.png"
+                      alt="Seen Image"
+                      class="seen-img"
+                    />
+                    Прегледано
+                  </button>
+                  <button class="have-it">Имам го</button>
+                  <button class="check">За проверка</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ad-container">
+            <div class="ad-card">
+              <div class="card-imgs">
+                <div class="main-img-container">
+                  <img
+                    src="images/main-large.png"
+                    alt="large-img"
+                    class="large-img"
+                  />
+                  <button class="example">Примерна снимка</button>
+                  <button class="heart-like">
+                    <img src="images/heart-btn.png" alt="Like" />
+                  </button>
+                </div>
+                <div class="small-imgs">
+                  <img
+                    src="images/main-small1.png"
+                    alt="small-img1"
+                    class="small-img1"
+                  />
+                  <img
+                    src="images/main-small2.png"
+                    alt="small-img2"
+                    class="small-img2"
+                  />
+                </div>
+              </div>
+              <div class="owner-time">
+                <div class="owner">
+                  <button class="owner-img">M</button>
+                  <div class="owner-name">
+                    <span class="first-name">Мартин,</span>
+                    <span class="city">Шумен</span>
+                  </div>
+                </div>
+                <div class="time">
+                  <span class="valid">Валидност</span>
+                  <span class="timer">48:18:16</span>
+                </div>
+              </div>
+              <hr class="main-ad-hr" />
+              <div class="main-lrg-content">
+                <button class="buying-green">КУПУВАМ</button>
+                <span class="large-main">
+                  Полуоска за Mercedes-Benz A-Class Hatchback (W168) (07.1997 -
+                  08.2004) A 140 (168.031, 168.131), 82 к.с., позиция: предна,
+                  дясна
+                </span>
+                <div class="smaller-main">
+                  <div>
+                    <span class="blue-offers">Получени оферти:</span>
+                    <span class="black-offers">9</span>
+                  </div>
+                  <div>
+                    <span class="blue-offers">Коментар: </span
+                    ><span class="black-offers"
+                      >Няма допълнителна информация.</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <hr class="main-ad-hr" />
+              <div class="additional-info">
+                <div class="info-left">
+                  <div class="left-top">
+                    <div>
+                      <span class="top-1">Кубатура: </span>
+                      <span class="top-2">1.4</span>
+                    </div>
+                    <div>
+                      <span class="top-1">Скоростна кутия: </span>
+                      <span class="top-2">Ръчни скорости</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="info-right">
+                  <div>
+                    <span class="top-1">Позиция: </span>
+                    <span class="top-2">Предна, дясна</span>
+                  </div>
+                  <div>
+                    <span class="top-1">Конски сили: </span>
+                    <span class="top-2">82</span>
+                  </div>
+                </div>
+              </div>
+              <div class="buttons-ad">
+                <div class="btn-ad-top">
+                  <button class="send-offer">
+                    Изпрати оферта
+                    <img src="images/arrow.png" alt="Arrow" class="arrow" />
+                  </button>
+                </div>
+                <div class="btn-ad-bottom">
+                  <button class="notebook-btn">
+                    <img
+                      src="images/ntb-img.png"
+                      alt="Notebook Image"
+                      class="ntb-img"
+                    />
+                    В бележника
+                  </button>
+                  <button class="seen">
+                    <img
+                      src="images/seen-img.png"
+                      alt="Seen Image"
+                      class="seen-img"
+                    />
+                    Прегледано
+                  </button>
+                  <button class="have-it">Имам го</button>
+                  <button class="check">За проверка</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ad-container">
+            <div class="ad-card">
+              <div class="card-imgs">
+                <div class="main-img-container">
+                  <img
+                    src="images/main-large.png"
+                    alt="large-img"
+                    class="large-img"
+                  />
+                  <button class="example">Примерна снимка</button>
+                  <button class="heart-like">
+                    <img src="images/heart-btn.png" alt="Like" />
+                  </button>
+                </div>
+                <div class="small-imgs">
+                  <img
+                    src="images/main-small1.png"
+                    alt="small-img1"
+                    class="small-img1"
+                  />
+                  <img
+                    src="images/main-small2.png"
+                    alt="small-img2"
+                    class="small-img2"
+                  />
+                </div>
+              </div>
+              <div class="owner-time">
+                <div class="owner">
+                  <button class="owner-img">M</button>
+                  <div class="owner-name">
+                    <span class="first-name">Мартин,</span>
+                    <span class="city">Шумен</span>
+                  </div>
+                </div>
+                <div class="time">
+                  <span class="valid">Валидност</span>
+                  <span class="timer">48:18:16</span>
+                </div>
+              </div>
+              <hr class="main-ad-hr" />
+              <div class="main-lrg-content">
+                <button class="buying-green">КУПУВАМ</button>
+                <span class="large-main">
+                  Полуоска за Mercedes-Benz A-Class Hatchback (W168) (07.1997 -
+                  08.2004) A 140 (168.031, 168.131), 82 к.с., позиция: предна,
+                  дясна
+                </span>
+                <div class="smaller-main">
+                  <div>
+                    <span class="blue-offers">Получени оферти:</span>
+                    <span class="black-offers">9</span>
+                  </div>
+                  <div>
+                    <span class="blue-offers">Коментар: </span
+                    ><span class="black-offers"
+                      >Няма допълнителна информация.</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <hr class="main-ad-hr" />
+              <div class="additional-info">
+                <div class="info-left">
+                  <div class="left-top">
+                    <div>
+                      <span class="top-1">Кубатура: </span>
+                      <span class="top-2">1.4</span>
+                    </div>
+                    <div>
+                      <span class="top-1">Скоростна кутия: </span>
+                      <span class="top-2">Ръчни скорости</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="info-right">
+                  <div>
+                    <span class="top-1">Позиция: </span>
+                    <span class="top-2">Предна, дясна</span>
+                  </div>
+                  <div>
+                    <span class="top-1">Конски сили: </span>
+                    <span class="top-2">82</span>
+                  </div>
+                </div>
+              </div>
+              <div class="buttons-ad">
+                <div class="btn-ad-top">
+                  <button class="send-offer">
+                    Изпрати оферта
+                    <img src="images/arrow.png" alt="Arrow" class="arrow" />
+                  </button>
+                </div>
+                <div class="btn-ad-bottom">
+                  <button class="notebook-btn">
+                    <img
+                      src="images/ntb-img.png"
+                      alt="Notebook Image"
+                      class="ntb-img"
+                    />
+                    В бележника
+                  </button>
+                  <button class="seen">
+                    <img
+                      src="images/seen-img.png"
+                      alt="Seen Image"
+                      class="seen-img"
+                    />
+                    Прегледано
+                  </button>
+                  <button class="have-it">Имам го</button>
+                  <button class="check">За проверка</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ad-container">
+            <div class="ad-card">
+              <div class="card-imgs">
+                <div class="main-img-container">
+                  <img
+                    src="images/main-large.png"
+                    alt="large-img"
+                    class="large-img"
+                  />
+                  <button class="example">Примерна снимка</button>
+                  <button class="heart-like">
+                    <img src="images/heart-btn.png" alt="Like" />
+                  </button>
+                </div>
+                <div class="small-imgs">
+                  <img
+                    src="images/main-small1.png"
+                    alt="small-img1"
+                    class="small-img1"
+                  />
+                  <img
+                    src="images/main-small2.png"
+                    alt="small-img2"
+                    class="small-img2"
+                  />
+                </div>
+              </div>
+              <div class="owner-time">
+                <div class="owner">
+                  <button class="owner-img">M</button>
+                  <div class="owner-name">
+                    <span class="first-name">Мартин,</span>
+                    <span class="city">Шумен</span>
+                  </div>
+                </div>
+                <div class="time">
+                  <span class="valid">Валидност</span>
+                  <span class="timer">48:18:16</span>
+                </div>
+              </div>
+              <hr class="main-ad-hr" />
+              <div class="main-lrg-content">
+                <button class="buying-green">КУПУВАМ</button>
+                <span class="large-main">
+                  Полуоска за Mercedes-Benz A-Class Hatchback (W168) (07.1997 -
+                  08.2004) A 140 (168.031, 168.131), 82 к.с., позиция: предна,
+                  дясна
+                </span>
+                <div class="smaller-main">
+                  <div>
+                    <span class="blue-offers">Получени оферти:</span>
+                    <span class="black-offers">9</span>
+                  </div>
+                  <div>
+                    <span class="blue-offers">Коментар: </span
+                    ><span class="black-offers"
+                      >Няма допълнителна информация.</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <hr class="main-ad-hr" />
+              <div class="additional-info">
+                <div class="info-left">
+                  <div class="left-top">
+                    <div>
+                      <span class="top-1">Кубатура: </span>
+                      <span class="top-2">1.4</span>
+                    </div>
+                    <div>
+                      <span class="top-1">Скоростна кутия: </span>
+                      <span class="top-2">Ръчни скорости</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="info-right">
+                  <div>
+                    <span class="top-1">Позиция: </span>
+                    <span class="top-2">Предна, дясна</span>
+                  </div>
+                  <div>
+                    <span class="top-1">Конски сили: </span>
+                    <span class="top-2">82</span>
+                  </div>
+                </div>
+              </div>
+              <div class="buttons-ad">
+                <div class="btn-ad-top">
+                  <button class="send-offer">
+                    Изпрати оферта
+                    <img src="images/arrow.png" alt="Arrow" class="arrow" />
+                  </button>
+                </div>
+                <div class="btn-ad-bottom">
+                  <button class="notebook-btn">
+                    <img
+                      src="images/ntb-img.png"
+                      alt="Notebook Image"
+                      class="ntb-img"
+                    />
+                    В бележника
+                  </button>
+                  <button class="seen">
+                    <img
+                      src="images/seen-img.png"
+                      alt="Seen Image"
+                      class="seen-img"
+                    />
+                    Прегледано
+                  </button>
+                  <button class="have-it">Имам го</button>
+                  <button class="check">За проверка</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ad-container">
+            <div class="ad-card">
+              <div class="card-imgs">
+                <div class="main-img-container">
+                  <img
+                    src="images/main-large.png"
+                    alt="large-img"
+                    class="large-img"
+                  />
+                  <button class="example">Примерна снимка</button>
+                  <button class="heart-like">
+                    <img src="images/heart-btn.png" alt="Like" />
+                  </button>
+                </div>
+                <div class="small-imgs">
+                  <img
+                    src="images/main-small1.png"
+                    alt="small-img1"
+                    class="small-img1"
+                  />
+                  <img
+                    src="images/main-small2.png"
+                    alt="small-img2"
+                    class="small-img2"
+                  />
+                </div>
+              </div>
+              <div class="owner-time">
+                <div class="owner">
+                  <button class="owner-img">M</button>
+                  <div class="owner-name">
+                    <span class="first-name">Мартин,</span>
+                    <span class="city">Шумен</span>
+                  </div>
+                </div>
+                <div class="time">
+                  <span class="valid">Валидност</span>
+                  <span class="timer">48:18:16</span>
+                </div>
+              </div>
+              <hr class="main-ad-hr" />
+              <div class="main-lrg-content">
+                <button class="buying-green">КУПУВАМ</button>
+                <span class="large-main">
+                  Полуоска за Mercedes-Benz A-Class Hatchback (W168) (07.1997 -
+                  08.2004) A 140 (168.031, 168.131), 82 к.с., позиция: предна,
+                  дясна
+                </span>
+                <div class="smaller-main">
+                  <div>
+                    <span class="blue-offers">Получени оферти:</span>
+                    <span class="black-offers">9</span>
+                  </div>
+                  <div>
+                    <span class="blue-offers">Коментар: </span
+                    ><span class="black-offers"
+                      >Няма допълнителна информация.</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <hr class="main-ad-hr" />
+              <div class="additional-info">
+                <div class="info-left">
+                  <div class="left-top">
+                    <div>
+                      <span class="top-1">Кубатура: </span>
+                      <span class="top-2">1.4</span>
+                    </div>
+                    <div>
+                      <span class="top-1">Скоростна кутия: </span>
+                      <span class="top-2">Ръчни скорости</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="info-right">
+                  <div>
+                    <span class="top-1">Позиция: </span>
+                    <span class="top-2">Предна, дясна</span>
+                  </div>
+                  <div>
+                    <span class="top-1">Конски сили: </span>
+                    <span class="top-2">82</span>
+                  </div>
+                </div>
+              </div>
+              <div class="buttons-ad">
+                <div class="btn-ad-top">
+                  <button class="send-offer">
+                    Изпрати оферта
+                    <img src="images/arrow.png" alt="Arrow" class="arrow" />
+                  </button>
+                </div>
+                <div class="btn-ad-bottom">
+                  <button class="notebook-btn">
+                    <img
+                      src="images/ntb-img.png"
+                      alt="Notebook Image"
+                      class="ntb-img"
+                    />
+                    В бележника
+                  </button>
+                  <button class="seen">
+                    <img
+                      src="images/seen-img.png"
+                      alt="Seen Image"
+                      class="seen-img"
+                    />
+                    Прегледано
+                  </button>
+                  <button class="have-it">Имам го</button>
+                  <button class="check">За проверка</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
